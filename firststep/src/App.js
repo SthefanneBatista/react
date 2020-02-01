@@ -12,13 +12,27 @@ class App extends React.Component {
     })
   }
 
+  createComboBox = () => {
+    const options = ["Fulano", "Cicrano"]
+    const ComBoxOptions = options.map( option => <option>{option}</option>)
+
+    return (
+      <select>
+        {ComBoxOptions}
+      </select>
+    )
+  }
 
   render(){
+
+    const MyComboBox = () => this.createComboBox()
+
     return(
     <>
     <input type="text" value={this.state.nome} onChange={this.modifyName} />
       <h1>Hello {this.state.nome}</h1>
-      </>
+      <MyComboBox/>
+    </>
     )
   }
 }
